@@ -12,7 +12,6 @@ defineProps({
         type: String,
         default: 'https://picsum.photos/600/400'
     },
-    // Array of strings for technologies, e.g., ['Vue', 'Firebase', 'Bootstrap']
     tags: {
         type: Array,
         default: () => ['Vue.js', 'Bootstrap']
@@ -20,11 +19,8 @@ defineProps({
     githubLink: {
         type: String,
         default: '#'
-    },
-    demoLink: {
-        type: String,
-        default: '#'
     }
+    
 });
 </script>
 
@@ -32,9 +28,7 @@ defineProps({
     <div class="card h-100 shadow-sm border-0 project-card">
         <div class="card-img-container">
             <img :src="image" class="card-img-top" :alt="title">
-            <div class="card-img-overlay d-flex align-items-center justify-content-center">
-                <a :href="demoLink" class="btn btn-light btn-sm fw-bold mx-1">View Demo</a>
-            </div>
+            
         </div>
 
         <div class="card-body p-4 d-flex flex-column">
@@ -54,11 +48,9 @@ defineProps({
             </p>
 
             <div class="mt-auto d-flex gap-2">
-                <a :href="demoLink" class="btn btn-primary btn-sm px-3 flex-grow-1">
-                    Live Preview
-                </a>
-                <a :href="githubLink" class="btn btn-outline-secondary btn-sm px-3">
-                    <i class="bi bi-github"></i> Code
+                
+                <a :href="githubLink" class="btn btn-outline-secondary btn-sm px-3 flex-grow-1">
+                    <i class="bi bi-github"></i> View on Github
                 </a>
             </div>
         </div>
