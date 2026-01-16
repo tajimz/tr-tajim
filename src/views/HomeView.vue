@@ -24,32 +24,17 @@ import Card from '../components/Card.vue';
 
   <div class="row g-4 mb-5"> 
     <h4><strong>Featured Projects</strong></h4>
-    <div class="col-12 col-md-6 col-lg-4">
-      <ProjectCard/>
+     <div v-for="n in 3" :key="n" class="col-12 col-md-6 col-lg-4">
+      <ProjectCard :title="'Project Name: '+n" :image="'https://picsum.photos/600/400?random='+n+'0'"/>
     </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <ProjectCard/>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <ProjectCard/>
-    </div>
-    
+
     <div class="col-12 text-center mt-4">
       <RouterLink to="/about" class="btn btn-outline-primary">View More Projects</RouterLink>
     </div>
-  </div>
-    <div class="row g-4 mb-5"> 
-    <h4><strong>Featured Posts</strong></h4>
-    <div class="col-12 col-md-6 col-lg-4">
-      <Card title="Title 1" body="Content here..." />
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <Card title="Title 2" body="Content here..." />
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <Card title="Title 3" body="Content here..." />
-    </div>
     
+    <div v-for="n in 3" :key="n" class="col-12 col-md-6 col-lg-4">
+      <Card :title="'Title ' + n" body="Content here..." :image="'https://picsum.photos/800/600?random='+n+'0'" :avatar="'https://picsum.photos/100/100?random'+n"/>
+    </div>
     <div class="col-12 text-center mt-4">
       <RouterLink to="/blog" class="btn btn-outline-primary">View More Posts</RouterLink>
     </div>

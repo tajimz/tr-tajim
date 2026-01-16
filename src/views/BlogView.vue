@@ -23,44 +23,8 @@ import Card from '../components/Card.vue';
     </div>
   </div>
   <div class="row g-4 "> 
-    <div class="col-12 col-md-6 col-lg-4">
-      <Card title="Title 1" body="Content here..." />
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <Card title="Title 2" body="Content here..." />
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <Card title="Title 3" body="Content here..." />
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <Card title="Title 4" body="Content here..." />
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <Card title="Title 5" body="Content here..." />
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <Card title="Title 1" body="Content here..." />
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <Card title="Title 1" body="Content here..." />
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <Card title="Title 1" body="Content here..." />
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <Card title="Title 1" body="Content here..." />
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <Card title="Title 1" body="Content here..." />
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <Card title="Title 1" body="Content here..." />
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <Card title="Title 1" body="Content here..." />
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <Card title="Title 1" body="Content here..." />
+    <div v-for="n in 10" :key="n" class="col-12 col-md-6 col-lg-4">
+      <Card :title="'Title ' + n" body="Content here..." :image="'https://picsum.photos/800/600?random='+n" :avatar="'https://picsum.photos/100/100?random'+n"/>
     </div>
   </div>
 </template>

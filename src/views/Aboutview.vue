@@ -17,18 +17,10 @@ import ProjectCard from '@/components/ProjectCard.vue';
   
   <div class="row g-4"> 
     <h4><strong>Projects I've done</strong></h4>
-    <div class="col-12 col-md-6 col-lg-4">
-      <ProjectCard/>
+    <div v-for="n in 5" :key="n" class="col-12 col-md-6 col-lg-4">
+      <ProjectCard :title="'Project Name: '+n" :image="'https://picsum.photos/600/400?random='+n"/>
     </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <ProjectCard/>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <ProjectCard/>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
-      <ProjectCard/>
-    </div>
+    
     
   </div>
 </template>
