@@ -31,7 +31,8 @@ import Card from '../components/Card.vue';
     <div class="col-12 text-center mt-4">
       <RouterLink to="/about" class="btn btn-outline-primary">View More Projects</RouterLink>
     </div>
-    
+      <h4 class="mt-5"><strong>Featured Posts</strong></h4>
+
     <div v-for="n in 3" :key="n" class="col-12 col-md-6 col-lg-4">
       <Card :title="'Title ' + n" body="Content here..." :image="'https://picsum.photos/800/600?random='+n+'0'" :avatar="'https://picsum.photos/100/100?random'+n"/>
     </div>
