@@ -3,15 +3,16 @@
 <script setup>
 import ProjectCard from '@/components/ProjectCard.vue';
 import { onBeforeMount, ref } from 'vue';
+import projectList from '@/data/projectList';
 
   const projects = ref([]);
   const allProjects = ref([]);
   const lastProjectId = ref(0);
-  onBeforeMount(async()=>{
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-    const data = await response.json();
+  onBeforeMount(/*async*/()=>{
+    //const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const data = /*await response.json();*/ projectList;
     allProjects.value = data;
-    projects.value = data.slice(10,20);
+    projects.value = data.slice(0,10);
 
   })
 
@@ -36,7 +37,7 @@ import { onBeforeMount, ref } from 'vue';
   <div class="row g-4"> 
     <h4><strong>Projects I've done</strong></h4>
     <div v-for="project in projects" :key="project.id" class="col-12 col-md-6 col-lg-4">
-      <ProjectCard :title="`${project.title}`" :body="`${project.body}`" :image="`https://picsum.photos/600/400?random=${project.id}`"/>
+      <ProjectCard :title="`${project.title}`" :body="`${project.body}`" :image="`${project.image}`" :githubLink="`${project.githubLink}`"/>
     </div>
     <button @click="loadMore()" class="btn btn-outline-primary mx-3 p-2" >Show More Projects</button>
 

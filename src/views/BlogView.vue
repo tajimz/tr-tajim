@@ -1,13 +1,14 @@
 <script setup>
 import { onBeforeMount, ref } from 'vue';
 import Card from '../components/Card.vue';
+import blogList from '@/data/blogList';
   const posts = ref([]);
   const allPosts = ref([]) ;
   const lastPostId = ref(0);
 
-  onBeforeMount(async()=>{
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
-    const data = await response.json();
+  onBeforeMount(/*async*/()=>{
+    //const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+    const data = /*await response.json();*/ blogList;
     allPosts.value = data;
     posts.value = data.slice(0,10);
 
@@ -44,7 +45,7 @@ import Card from '../components/Card.vue';
   </div>
   <div class="row g-4 "> 
     <div v-for="post in posts" :key="post.id" class="col-12 col-md-6 col-lg-4">
-      <Card :id="`${post.id}`" :title="post.title" :body="post.body" :image="`https://picsum.photos/800/600?random=${post.id}`" :avatar="`https://picsum.photos/100/100?random=${post.id}`"/>
+      <Card :id="`${post.id}`" :title="post.title" :body="post.body" :image="`${post.image}`" :avatar="`${post.avatar}`" :date="`${post.date}`" :category="`${post.category}`"/>
     </div>
     <button @click="loadMore()" class="btn btn-outline-primary mx-3 p-2" >Show More Blogs</button>
   </div>

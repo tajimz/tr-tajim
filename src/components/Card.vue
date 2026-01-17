@@ -26,8 +26,9 @@ defineProps({
 
 <template>
     <div class="card h-100 border-1 shadow-sm overflow-hidden hover-shadow-lg">
-        <div class="ratio ratio-16x9">
-            <img :src="image" class="object-fit-cover" alt="Header Image">
+        
+        <div class="card-img-container">
+            <img :src="image" class="card-img-top" alt="Header Image">
         </div>
 
         <div class="card-body p-4 d-flex flex-column">
@@ -44,7 +45,8 @@ defineProps({
             <h5 class="card-title fw-bold mb-2">
                 {{ title }}
             </h5>
-            <p class="card-text text-muted small mb-4 text-truncate">
+
+            <p class="card-text text-muted small mb-4 line-clamp-2">
                 {{ body }}
             </p>
 
@@ -58,6 +60,7 @@ defineProps({
 </template>
 
 <style scoped>
+/* Card 1 Animation & Sizing Logic */
 .hover-shadow-lg {
     transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
@@ -65,20 +68,34 @@ defineProps({
     transform: translateY(-4px);
     box-shadow: 0 1rem 3rem rgba(0,0,0,.125) !important;
 }
-.object-fit-cover {
+
+/* Matching the first card's image height exactly */
+.card-img-container {
+    height: 180px; 
+    position: relative;
+    overflow: hidden;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
-.text-truncate {
-    display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
+
+/* Title and Body line clamping to prevent size breaking */
 .card-title {
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Limits title to 2 lines */
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    min-height: 3rem; /* Keeps cards aligned even with 1-line titles */
+    min-height: 3rem; 
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 </style>

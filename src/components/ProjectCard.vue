@@ -49,7 +49,7 @@ defineProps({
 
             <div class="mt-auto d-flex gap-2">
                 
-                <a :href="githubLink" class="btn btn-outline-secondary btn-sm px-3 flex-grow-1">
+                <a :href="githubLink" target="_blank" class="btn btn-outline-secondary btn-sm px-3 flex-grow-1">
                     <i class="bi bi-github"></i> View on Github
                 </a>
             </div>

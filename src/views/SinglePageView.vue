@@ -1,12 +1,13 @@
 <script setup>
 import { onBeforeMount, ref } from 'vue';
 import { useRoute } from 'vue-router';
+import blogList from '@/data/blogList';
 
     const postId = useRoute().params.id;
     const post = ref([]);
-    onBeforeMount(async()=>{
-        const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
-        post.value = await response.json();
+    onBeforeMount(/*async*/()=>{
+        //const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+        post.value = /*await response.json();*/  blogList.find(item => item.id === postId);
     })
 </script>
 
@@ -32,7 +33,7 @@ import { useRoute } from 'vue-router';
             </div>
             <div class="ms-3">
               <div class="text-uppercase small fw-bold text-secondary" style="letter-spacing: 0.5px;">Published By</div>
-              <div class="fw-bold text-dark fs-5">Tajim <span class="text-muted fw-normal fs-6 mx-2">•</span> <span class="text-muted fw-normal fs-6">24 May, 2026</span></div>
+              <div class="fw-bold text-dark fs-5">Tajim <span class="text-muted fw-normal fs-6 mx-2">•</span> <span class="text-muted fw-normal fs-6">{{ post.date }}</span></div>
             </div>
           </div>
         </div>
