@@ -3,6 +3,7 @@ import Contactview from '@/views/Contactview.vue'
 import HomeView from '@/views/HomeView.vue'
 import BlogView from '@/views/BlogView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
+import SinglePageView from '@/views/SinglePageView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -24,6 +25,10 @@ const router = createRouter({
       path:'/blog',
       name: 'blog',
       component: BlogView
+    },{
+      path:'/blog/:id',
+      name: 'single_blog',
+      component: SinglePageView
     }
   ],
   scrollBehavior(to, from, savedPosition) {
