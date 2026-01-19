@@ -44,7 +44,7 @@ import Card from '../components/Card.vue';
   </div>
   <div class="row g-4 "> 
     <div v-for="blog in blogs" :key="blog.id" class="col-12 col-md-6 col-lg-4">
-      <Card :slug="blog.slug" :title="blog.title" :body="blog.body" :image="blog.image" :category="blog.category"/>
+      <Card :slug="blog.slug" :title="blog.title" :body="blog.body" :image="blog.image" :category="blog.category" :date="blog.published_at"/>
   </div>
     <button @click="loadMore()" class="btn btn-outline-primary mx-3 p-2" v-if="blogs.length < allBlogs.length">Show More Blogs</button>
   </div>

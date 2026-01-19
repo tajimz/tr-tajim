@@ -46,7 +46,7 @@ onMounted( async()=>{
       <h4 class="mt-5"><strong>Featured Posts</strong></h4>
 
     <div v-for="blog in blogs" :key="blog.id" class="col-12 col-md-6 col-lg-4">
-      <Card :slug="blog.slug" :title="blog.title" :body="blog.body" :image="blog.image" :avatar="blog.avatar" :date="blog.date" :category="blog.category" />
+      <Card :slug="blog.slug" :title="blog.title" :body="blog.body" :image="blog.image" :avatar="blog.avatar" :date="blog.published_at" :category="blog.category" />
     </div>
     <div class="col-12 text-center mt-4">
       <RouterLink to="/blog" class="btn btn-outline-primary">View More Posts</RouterLink>
